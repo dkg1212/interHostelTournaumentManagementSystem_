@@ -1,9 +1,17 @@
-const express=require("express");
-const { getHostels,getHostelsById } = require("../controllers/hostelController");
+const express = require("express");
+const router = express.Router();
+const {
+  getHostels,
+  createHostel,
+  getHostelsById,
+  updateHostel,
+  deleteHostel,
+} = require("../controllers/hostelController");
 
-const router=express.Router();
+router.get("/getAll", getHostels);
+router.post("/addHostel", createHostel);
+router.get("/get/:id", getHostelsById);
+router.put("/upadteHostel/:id", updateHostel);
+router.delete("/deleteHostel/:id", deleteHostel);
 
-router.get('/getAll',getHostels);
-router.get('/get/:id',getHostelsById);
-
-module.exports= router;
+module.exports = router;
